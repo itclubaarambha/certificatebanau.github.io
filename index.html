@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarambha X Karta Certificate Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">Aarambha X Karta</h1>
+                <p class="tagline">Certificate Generator</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Certificate Type Selection -->
+            <section class="certificate-types">
+                <h2 class="section-title">Choose Certificate Type</h2>
+                <div class="types-grid">
+                    <div class="type-card" data-type="completion">
+                        <div class="type-icon">🎓</div>
+                        <h3>Course Completion</h3>
+                        <p>For students who successfully completed a course</p>
+                    </div>
+                    <div class="type-card" data-type="achievement">
+                        <div class="type-icon">🏆</div>
+                        <h3>Achievement</h3>
+                        <p>For outstanding performance and excellence</p>
+                    </div>
+                    <div class="type-card" data-type="participation">
+                        <div class="type-icon">🎯</div>
+                        <h3>Participation</h3>
+                        <p>For active participation in events/workshops</p>
+                    </div>
+                    <div class="type-card" data-type="appreciation">
+                        <div class="type-icon">⭐</div>
+                        <h3>Appreciation</h3>
+                        <p>For valuable contributions and dedication</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certificate Form -->
+            <section class="certificate-form-section" id="formSection">
+                <h2 class="section-title">Certificate Details</h2>
+                <form id="certificateForm" class="certificate-form">
+                    <!-- Branding Section -->
+                    <div class="form-section-block">
+                        <h3 class="subsection-title">Organization Identity</h3>
+                        <div class="form-section">
+                            <h3>🎨 Branding & Colors</h3>
+                            <div class="form-group">
+                                <label for="orgName">Organization Name</label>
+                                <input type="text" id="orgName" name="orgName" placeholder="e.g. Harvard University"
+                                    value="Your Organization">
+                            </div>
+                            <div class="form-group">
+                                <label for="logoUpload">Upload Logo</label>
+                                <div class="logo-upload-wrapper">
+                                    <input type="file" id="logoUpload" name="logoUpload" accept="image/*">
+                                    <img id="logoPreview" class="logo-preview hidden" src="" alt="Preview">
+                                </div>
+                                <small class="form-help">Recommended: Transparent PNG</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="primaryColor">Primary Color <span
+                                        style="font-size: 0.85em; color: #64748b;">(Main brand color - borders,
+                                        accents)</span></label>
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <input type="color" id="primaryColor" name="primaryColor" value="#1e40af">
+                                    <span id="primaryColorLabel"
+                                        style="font-size: 0.9em; color: #64748b;">Primary</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="secondaryColor">Accent Color <span
+                                        style="font-size: 0.85em; color: #64748b;">(Secondary brand color -
+                                        highlights)</span></label>
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <input type="color" id="secondaryColor" name="secondaryColor" value="#f59e0b">
+                                    <span id="secondaryColorLabel"
+                                        style="font-size: 0.9em; color: #64748b;">Accent</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Configuration Section -->
+                    <div class="form-section-block">
+                        <h3 class="subsection-title">Layout & Signatures</h3>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label>Certificate Layout</label>
+                                <div class="layout-grid">
+                                    <div class="layout-card-option active" data-layout="classic">
+                                        <div class="layout-icon">🏛️</div>
+                                        <span>Classic</span>
+                                    </div>
+                                    <div class="layout-card-option" data-layout="modern">
+                                        <div class="layout-icon">🔷</div>
+                                        <span>Modern</span>
+                                    </div>
+                                    <div class="layout-card-option" data-layout="minimal">
+                                        <div class="layout-icon">✨</div>
+                                        <span>Minimal</span>
+                                    </div>
+                                    <div class="layout-card-option" data-layout="elegant">
+                                        <div class="layout-icon">📜</div>
+                                        <span>Elegant</span>
+                                    </div>
+                                    <div class="layout-card-option" data-layout="banner">
+                                        <div class="layout-icon">🏷️</div>
+                                        <span>Banner</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="signatory1">Signatory 1 Title</label>
+                                <input type="text" id="signatory1" name="signatory1" placeholder="e.g. Principal"
+                                    value="Principal">
+                            </div>
+                            <div class="form-group">
+                                <label for="signatory2">Signatory 2 Title</label>
+                                <input type="text" id="signatory2" name="signatory2" placeholder="e.g. Director"
+                                    value="Course Director">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Student Details Section -->
+                    <div class="form-section-block">
+                        <h3 class="subsection-title">Student Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="studentName">Student Name <span class="required">*</span></label>
+                                <input type="text" id="studentName" name="studentName" placeholder="Enter full name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="courseName">Course/Event <span class="required">*</span></label>
+                                <input type="text" id="courseName" name="courseName" placeholder="Course Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="completionDate">Date <span class="required">*</span></label>
+                                <input type="date" id="completionDate" name="completionDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="grade">Grade (Optional)</label>
+                                <input type="text" id="grade" name="grade" placeholder="e.g. A+">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="description">Additional Details (Optional)</label>
+                                <textarea id="description" name="description" rows="2"
+                                    placeholder="Start date, ID, etc."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
+                        <button type="submit" class="btn btn-primary" id="generateBtn">Generate Certificate
+                            (Preview)</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Certificate Preview -->
+            <section class="certificate-preview" id="previewSection">
+                <h2 class="section-title">Certificate Preview</h2>
+                <div class="certificate-container">
+                    <div id="certificate" class="certificate">
+                        <!-- Certificate content will be generated here -->
+                    </div>
+                </div>
+                <div class="preview-actions">
+                    <button class="btn btn-secondary" id="editBtn">Edit Details</button>
+                    <button class="btn btn-primary" id="downloadBtn">Save as PDF</button>
+                    <button class="btn btn-primary" id="downloadPngBtn">Download 4K PNG</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 KARTA CERTIFICATE GENERATOR. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
